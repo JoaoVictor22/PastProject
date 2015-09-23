@@ -85,12 +85,24 @@ public class UsuarioDAO  {
 				f.setSenha(colunas[2]);
 				
 				lista.add(f);
+<<<<<<< HEAD
+				scan.close();
+=======
+>>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
+		
 		return lista;
 	}
+	
+	
+=======
+		return lista;
+	}
+>>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
 
 	public Usuario load(int chave) {
 		// TODO Auto-generated method stub

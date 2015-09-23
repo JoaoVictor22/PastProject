@@ -3,6 +3,11 @@ package modelo;
 public class Usuario {
 	private String nick;
 	private String email;
+<<<<<<< HEAD
+	private String senha;
+	
+=======
+>>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
 	public String getNick() {
 		return nick;
 	}
@@ -35,7 +40,11 @@ public class Usuario {
 	public Usuario() {
 		// TODO Auto-generated constructor stub
 	}
+<<<<<<< HEAD
+	
+=======
 	private String senha;
+>>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
 	
 
 }
