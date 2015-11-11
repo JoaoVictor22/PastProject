@@ -3,11 +3,13 @@ package modelo;
 public class Usuario {
 	private String nick;
 	private String email;
-<<<<<<< HEAD
 	private String senha;
+	private int codigo;
 	
-=======
->>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
+	public Usuario() {
+		
+	}
+	
 	public String getNick() {
 		return nick;
 	}
@@ -33,18 +35,17 @@ public class Usuario {
 	}
 	public Usuario(String nick, String email, String senha) {
 		super();
+		
 		this.nick = nick;
 		this.email = email;
 		this.senha = senha;
 	}
-	public Usuario() {
-		// TODO Auto-generated constructor stub
+		public int getCodigo() {
+		return codigo;
 	}
-<<<<<<< HEAD
-	
-=======
-	private String senha;
->>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	
 
 }

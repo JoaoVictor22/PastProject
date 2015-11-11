@@ -1,13 +1,8 @@
 package web;
 
-import spark.Spark;
-import spark.TemplateViewRoute;
+import spark.*;
 import spark.template.mustache.MustacheTemplateEngine;
-import controlador.CadastraControlador;
-import controlador.HomeControlador;
-import controlador.ListaControlador;
-import controlador.SalvaControlador;
-
+import controlador.*;
 
 public class Main {
 
@@ -43,6 +38,13 @@ public class Main {
 	
 		
 		Spark.get("/lista", listaControlador, engine);
+		
+		EditaControlador EditaControlador = new EditaControlador();
+		Spark.get("/editar", EditaControlador, engine);
+
+		SalvarEditarControlador SalvaEditarControlador = new SalvarEditarControlador();
+		Spark.post("/edita", SalvaEditarControlador, engine);
+		
 		
 	}
 

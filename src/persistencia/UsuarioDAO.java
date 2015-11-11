@@ -1,22 +1,27 @@
 package persistencia;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import modelo.Usuario;
+
 import javax.xml.crypto.Data;
 public class UsuarioDAO  {
 
 	public void save(Usuario f) {
 		try {
-		
+			f.setCodigo(geraCodigo());
 			File dir = new File("usuario");
 			if (!dir.exists()) dir.mkdir();
 			
-			File arq = new File("usuario/" + f.getNick() + ".csv");
+			File arq = new File("usuario/" + f.getCodigo() + ".csv");
 			if (arq.exists()) return;
 		
 			FileWriter writer = new FileWriter(arq);
+			writer.write(f.getCodigo() + ";");
 			writer.write(f.getNick() + ";");
 			writer.write(f.getEmail() + ";");
 			writer.write(f.getSenha() + "\n");
@@ -31,7 +36,7 @@ public class UsuarioDAO  {
 
 	public void delete(Usuario f) {
 		try {
-			File arq = new File("usuario/" + f.getNick() + ".csv");
+			File arq = new File("usuario/" + f.getCodigo() + ".csv");
 			
 			if ( ! arq.exists()) return; 
 			
@@ -41,9 +46,9 @@ public class UsuarioDAO  {
 		}		
 	}
 
-	public Usuario load(String Nick) {		
+	public Usuario load(int codigo) {		
 		try {
-			File arq = new File("filmes/" + Nick + ".csv");
+			File arq = new File("usuario/" + codigo + ".csv");
 			
 			if ( ! arq.exists()) return null;
 			
@@ -52,20 +57,25 @@ public class UsuarioDAO  {
 			String[] colunas = linha.split(";");
 			
 			Usuario f = new Usuario();
-			f.setNick(Nick);
-			f.setEmail(colunas[1]);
-			f.setSenha(colunas[2]);
-
+			f.setCodigo(codigo);
+			f.setNick(colunas[1]);
+			f.setEmail(colunas[2]);
+			f.setSenha(colunas[3]);
+			
+			scan.close();
 			return f;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 
 	public void update(Usuario f) {
+		
+		File arq = new File("usuario/" + f.getCodigo() + ".csv");
+		arq.delete();
+		save(f);
 		
 	}
 
@@ -85,30 +95,58 @@ public class UsuarioDAO  {
 				f.setSenha(colunas[2]);
 				
 				lista.add(f);
-<<<<<<< HEAD
+
 				scan.close();
-=======
->>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-<<<<<<< HEAD
+
 		
 		return lista;
 	}
 	
+	public int geraCodigo() {
+		File arq = new File("usuario/codigo.csv");
+		if (!arq.exists()) {
+			
+			try {
+				FileWriter writer = new FileWriter(arq);
+				writer.write(0);
+				writer.flush();
+				writer.close();
+				return 0;
+			} catch (IOException e) {
+		
+				
+				e.printStackTrace();
+			}
+		
+		}
+		else {
 	
-=======
-		return lista;
-	}
->>>>>>> e4d73cd9a207b9908c19a2b75676076ad17f5229
+			try {
+				Scanner scan = new Scanner(arq);
+				int n = Integer.parseInt(scan.nextLine());
+				n++;
+				FileWriter writer = new FileWriter(arq);
+				writer.write(n);
+				writer.flush();
+				writer.close();
+				return n;
+			} catch (FileNotFoundException e) {
+			
+				e.printStackTrace();
+			} catch (IOException e) {
+			
+				e.printStackTrace();
+			}
 
-	public Usuario load(int chave) {
-		// TODO Auto-generated method stub
-		return null;
+		}
+		return 0;
 	}
-
 }
+
 
 	
