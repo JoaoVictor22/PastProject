@@ -1,0 +1,8 @@
+Qualidade :
+
+Externa : Layout, navegabiliadade , confiável, tratamento de erros, corretude.
+
+Interna : Reaproveitamento de código (métodos, superclasses e subclasses, ...), Formato(identado,nome legiveis,...)
+	  Organizado(pacotes,atributos de acordo com classe, ...), orientação a objetos (se são usadas classes e métodos)
+
+Apresentação : Explicação(defesa), revezamento na defesa.

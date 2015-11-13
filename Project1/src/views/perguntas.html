@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+
+	<br>
+	<h1> {{pergunta.pergunta}}</h1>
+	<br>
+<form method ="post" action="/testa/{{codigo}}">
+a)<input type="radio" name="op" value="a">{{pergunta.resposta1}}
+<br>
+b)<input type="radio" name="op" value="b">{{pergunta.resposta2}}
+<br>
+c)<input type="radio" name="op" value="c">{{pergunta.resposta3}}
+<br>
+d)<input type="radio" name="op" value="d">{{pergunta.resposta4}}
+<br>
+e)<input type="radio" name="op" value="e">{{pergunta.resposta5}}
+<input type="submit" name="enviar"> 
+</form>	
+	
+
+	
+
+
+</body>
+</html>
