@@ -109,26 +109,11 @@ public class UsuarioDAO  {
 	
 	public int geraCodigo() {
 		File arq = new File("usuario/codigo.csv");
-		if (!arq.exists()) {
-			
-			try {
-				FileWriter writer = new FileWriter(arq);
-				writer.write(0);
-				writer.flush();
-				writer.close();
-				return 0;
-			} catch (IOException e) {
-		
-				
-				e.printStackTrace();
-			}
-		
-		}
-		else {
-	
+		if (arq.exists()) {
 			try {
 				Scanner scan = new Scanner(arq);
 				int n = Integer.parseInt(scan.nextLine());
+				scan.close();
 				n++;
 				FileWriter writer = new FileWriter(arq);
 				writer.write(n);
@@ -142,9 +127,22 @@ public class UsuarioDAO  {
 			
 				e.printStackTrace();
 			}
-
 		}
-		return 0;
+		else {
+			try {
+				FileWriter writer = new FileWriter(arq);
+				writer.write(0 + "");
+				writer.flush();
+				writer.close();
+				return 0;
+			} catch (IOException e) {
+		
+				
+				e.printStackTrace();
+			}
+			
+		}
+		return -1;
 	}
 }
 
