@@ -85,24 +85,21 @@ public class UsuarioDAO  {
 			File dir = new File("usuario");		
 			File[] arqs = dir.listFiles();
 			for (File arq : arqs) { 
-				Scanner scan = new Scanner(arq);
+				Scanner scan = new Scanner(arq);				
 				String linha = scan.nextLine();
-				String[] colunas = linha.split(";");
-				
-				Usuario f = new Usuario();
-				f.setNick((colunas[0]));
-				f.setEmail(colunas[1]);
-				f.setSenha(colunas[2]);
-				
+				String[] colunas = linha.split(";");				
+			
+				Usuario f = new Usuario();				
+				f.setNick(colunas[1].trim());
+				f.setEmail(colunas[2].trim());
+				f.setSenha(colunas[3].trim());				
 				lista.add(f);
-
 				scan.close();
 
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		
 		return lista;
 	}
@@ -112,11 +109,13 @@ public class UsuarioDAO  {
 		if (arq.exists()) {
 			try {
 				Scanner scan = new Scanner(arq);
-				int n = Integer.parseInt(scan.nextLine());
+				String s = scan.nextLine();
+				System.out.println(s);
+				int n = Integer.parseInt(s);
 				scan.close();
 				n++;
 				FileWriter writer = new FileWriter(arq);
-				writer.write(n);
+				writer.write(Integer.toString(n));
 				writer.flush();
 				writer.close();
 				return n;
@@ -131,7 +130,7 @@ public class UsuarioDAO  {
 		else {
 			try {
 				FileWriter writer = new FileWriter(arq);
-				writer.write(0 + "");
+				writer.write("0");
 				writer.flush();
 				writer.close();
 				return 0;
