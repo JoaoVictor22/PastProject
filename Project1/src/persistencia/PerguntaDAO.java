@@ -20,7 +20,7 @@ public class PerguntaDAO {
 		
 		try {
 			// diretório
-			File dir = new File("Perguntas");
+			File dir = new File("perguntas");
 			if (!dir.exists()) dir.mkdir();
 			// arquivo individual
 			File arq = new File("perguntas/" + p.getCodigo() + ".csv");
@@ -45,7 +45,7 @@ public class PerguntaDAO {
 	}
 	public Pergunta load(int codigo) {		
 		try {
-			File arq = new File("pergunta/" + codigo + ".csv");
+			File arq = new File("perguntas/" + codigo + ".csv");
 			
 			if ( ! arq.exists()) return null;
 			
@@ -71,30 +71,15 @@ public class PerguntaDAO {
 		return null;
 	}
 	public int geraCodigo() {
-		File arq = new File("usuario/codigo.csv");
-		if (!arq.exists()) {
-			
-			try {
-				FileWriter writer = new FileWriter(arq);
-				writer.write(0);
-				writer.flush();
-				writer.close();
-				return 0;
-			} catch (IOException e) {
-		
-				
-				e.printStackTrace();
-			}
-		
-		}
-		else {
-	
+		File arq = new File("perguntas/codigo.csv");
+		if (arq.exists()) {
 			try {
 				Scanner scan = new Scanner(arq);
 				int n = Integer.parseInt(scan.nextLine());
+				scan.close();
 				n++;
 				FileWriter writer = new FileWriter(arq);
-				writer.write(n);
+				writer.write(Integer.toString(n));
 				writer.flush();
 				writer.close();
 				return n;
@@ -105,10 +90,24 @@ public class PerguntaDAO {
 			
 				e.printStackTrace();
 			}
-
+		}//array = Collections.shuffle(array);
+		else {
+			try {
+				FileWriter writer = new FileWriter(arq);
+				writer.write("0");
+				writer.flush();
+				writer.close();
+				return 0;
+			} catch (IOException e) {
+		
+				
+				e.printStackTrace();
+			}
+			
 		}
-		return 0;
+		return -1;
 	}
+
 	
 	public ArrayList<Pergunta> findAll() {
 		ArrayList<Pergunta> pergunta = new ArrayList<Pergunta>();
