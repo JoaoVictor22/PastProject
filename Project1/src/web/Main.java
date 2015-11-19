@@ -50,12 +50,20 @@ public class Main {
 		
 		PerguntaControlador perguntaControlador = new PerguntaControlador();
 		Spark.get("/pergunta/:codigo",perguntaControlador,engine);
+
 		
 		CadastraPerguntasControlador cadastraPerguntaControlador = new CadastraPerguntasControlador();
 		Spark.get("/cadastroperguntas",cadastraPerguntaControlador,engine);
 		
 		SalvaPerguntaControlador salvaPerguntaControlador = new SalvaPerguntaControlador();
 		Spark.post("/salvarPergunta",salvaPerguntaControlador,engine);
-	}	
+
+
+
+		LoginControlador loginControlador = new LoginControlador();
+		Spark.post("/loga", loginControlador, engine);
+		
+	}
+
 
 }
