@@ -17,11 +17,12 @@ public class PerguntaDAO {
 
 
 	public void save(Pergunta p){
-		
+			
 		try {
 			// diretório
 			File dir = new File("perguntas");
 			if (!dir.exists()) dir.mkdir();
+			p.setCodigo(geraCodigo());
 			// arquivo individual
 			File arq = new File("perguntas/" + p.getCodigo() + ".csv");
 			if (arq.exists()) return;
@@ -75,7 +76,9 @@ public class PerguntaDAO {
 		if (arq.exists()) {
 			try {
 				Scanner scan = new Scanner(arq);
-				int n = Integer.parseInt(scan.nextLine());
+				String s = scan.nextLine();
+				System.out.println(s);
+				int n = Integer.parseInt(s);
 				scan.close();
 				n++;
 				FileWriter writer = new FileWriter(arq);
@@ -90,7 +93,7 @@ public class PerguntaDAO {
 			
 				e.printStackTrace();
 			}
-		}//array = Collections.shuffle(array);
+		}
 		else {
 			try {
 				FileWriter writer = new FileWriter(arq);
