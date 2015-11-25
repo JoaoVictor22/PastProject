@@ -18,6 +18,7 @@ public class PerguntaControlador implements TemplateViewRoute {
 	public ModelAndView handle(Request req, Response resp) {
 		
 		int codigo = Integer.parseInt(req.params("codigo"));
+		System.out.println(codigo);
 		Pergunta pergunta = dao.load(codigo);
 		Map mapa = new HashMap();
 		mapa.put("pergunta",pergunta);
