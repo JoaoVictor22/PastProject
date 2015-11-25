@@ -108,7 +108,10 @@ public class UsuarioDAO  {
 		return lista;
 	}
 	
+
 	public int geraCodigo() {
+		File f = new File ("usuario");
+		if (!f.exists()) f.mkdir();
 		File arq = new File("usuario/codigo.csv");
 		if (arq.exists()) {
 			try {
