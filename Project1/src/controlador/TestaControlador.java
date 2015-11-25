@@ -1,7 +1,9 @@
 package controlador;
 
 import persistencia.PerguntaDAO;
+import persistencia.UsuarioDAO;
 import modelo.Pergunta;
+import modelo.Usuario;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -19,21 +21,24 @@ public class TestaControlador implements TemplateViewRoute {
 		//carregar o arquivo correspondente ao código.
 		// Comparar a resposta certa com a resposta fornecida pelo usuario
 		String op = req.queryMap("op").value();
+		int acertos = req.session().attribute("acertos");
 		if(op.equals(pergunta2.getRespostacerta())){
+			acertos++;
+			req.session().attribute("acertos",acertos);
 			codigo++;
 			Pergunta nova = dao.load(codigo);
+			Usuario u = req.session().attribute("usuario");
+			UsuarioDAO dao = new UsuarioDAO();
+			
+			u.setPerguntausuario(acertos);
+			dao.update(u);
+			
 			resp.redirect("/pergunta/"+codigo);
 		}else{
 			resp.redirect("erro.html");
 			return null;
 		}
-		
-		
-		// Se acertou redirecionar para a próxima
-		// codigo++;
-		// Enviar um QUeryMap("pergunta", proxima_pergunta)
-		// Se n acertar
-		// res.redirect("PAGINA DE ERRO"|| "PERDEU")
+
 		
 		return new ModelAndView(null,"perguntas.html");
 	}

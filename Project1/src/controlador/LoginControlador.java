@@ -12,11 +12,7 @@ import spark.TemplateViewRoute;
 public class LoginControlador implements TemplateViewRoute {
 
 	public ModelAndView handle(Request req, Response res) {
-		// ver se tem o nick cadastrado - DICA findAll
-		// se não tiver, redireciona para erro
-		// se tiver, testa a senha
-		// se senha errada, página de erro
-		// se senha correta, loga session.attribute
+		
 		req.queryMap("nick");
 		req.queryMap("senha");
 		Usuario u = new Usuario();

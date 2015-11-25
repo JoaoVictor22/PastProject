@@ -24,8 +24,9 @@ public class UsuarioDAO  {
 			writer.write(f.getCodigo() + ";");
 			writer.write(f.getNick() + ";");
 			writer.write(f.getEmail() + ";");
-			writer.write(f.getSenha() + "\n");
-		
+			writer.write(f.getSenha() + ";");
+			writer.write(f.getPerguntausuario() + "\n");
+			
 			writer.flush();
 			writer.close();
 			
@@ -61,6 +62,7 @@ public class UsuarioDAO  {
 			f.setNick(colunas[1]);
 			f.setEmail(colunas[2]);
 			f.setSenha(colunas[3]);
+			f.setPerguntausuario(Integer.parseInt(colunas[4]));
 			
 			scan.close();
 			return f;
@@ -93,6 +95,8 @@ public class UsuarioDAO  {
 				f.setNick(colunas[1].trim());
 				f.setEmail(colunas[2].trim());
 				f.setSenha(colunas[3].trim());				
+				f.setPerguntausuario(Integer.parseInt(colunas[4]));
+
 				lista.add(f);
 				scan.close();
 
