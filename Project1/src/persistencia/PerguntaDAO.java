@@ -35,7 +35,7 @@ public class PerguntaDAO {
 			writer.write(p.getResposta4() + ";");
 			writer.write(p.getResposta5() + ";");
 			writer.write(p.getRespostacerta() + ";");
-			writer.write(p.getCodigo());
+			writer.write(p.getCodigo()+"");
 			// fechar o arquivo
 			writer.flush();
 			writer.close();
@@ -62,6 +62,7 @@ public class PerguntaDAO {
 			p.setResposta4(colunas[4]);
 			p.setResposta5(colunas[5]);
 			p.setRespostacerta(colunas[6]);
+			System.out.println(colunas[7]);
 			p.setCodigo(Integer.parseInt(colunas[7]));
 			return p;
 			
