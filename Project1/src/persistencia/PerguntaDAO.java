@@ -122,7 +122,7 @@ public class PerguntaDAO {
 				Scanner scan = new Scanner(arq);
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");
-				
+				scan.close();
 				Pergunta p = new Pergunta();
 				p.setPergunta((colunas[0]));
 				p.setResposta1(colunas[1]);
