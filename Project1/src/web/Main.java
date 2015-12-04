@@ -10,7 +10,7 @@ public class Main {
 		
 		// precisa de um package static
 		// onde ficam os css, javascript, imgs, conte�do fixo
-		Spark.staticFileLocation("/publico");
+		Spark.staticFileLocation("/pub");
 		
 		// precisa de um package apresenta��o (views)
 		// onde ficam os HTML'S

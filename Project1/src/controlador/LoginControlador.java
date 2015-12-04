@@ -16,11 +16,14 @@ public class LoginControlador implements TemplateViewRoute {
 
 	public ModelAndView handle(Request req, Response res) {
 		
+		req.queryMap("nick");
+		req.queryMap("senha");
 		Usuario u = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
-		
+
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		lista = dao.findAll();
+		
 
 		String nick = req.queryParams("nick");
 		String senha = req.queryParams("senha");
@@ -28,6 +31,7 @@ public class LoginControlador implements TemplateViewRoute {
 		for (int i = 0; i < lista.size(); i++) {
 			if (nick.trim().equals(lista.get(i).getNick())) {
 				if (senha.trim().equals(lista.get(i).getSenha())) {
+					
 					if(nick.trim().equals("administrador")){
 						res.redirect("/cadastroperguntas"); 
 					}
@@ -46,6 +50,7 @@ public class LoginControlador implements TemplateViewRoute {
 						lista2.add(lista1.get(j)); 
 					}
 					
+
 					u = lista.get(i);
 					req.session().attribute("usuario", u);
 					return new ModelAndView(null, "intro.html");

@@ -35,7 +35,7 @@ public class PerguntaDAO {
 			writer.write(p.getResposta4() + ";");
 			writer.write(p.getResposta5() + ";");
 			writer.write(p.getRespostacerta() + ";");
-			writer.write(p.getCodigo()+"");
+			writer.write(p.getCodigo());
 			// fechar o arquivo
 			writer.flush();
 			writer.close();
@@ -63,7 +63,8 @@ public class PerguntaDAO {
 			p.setResposta5(colunas[5]);
 			p.setRespostacerta(colunas[6]);
 			System.out.println(colunas[7]);
-			p.setCodigo(Integer.parseInt(colunas[7]));
+			p.setCodigo(codigo);
+			
 			return p;
 			
 		} catch (Exception e) {
@@ -122,7 +123,7 @@ public class PerguntaDAO {
 				Scanner scan = new Scanner(arq);
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");
-				scan.close();
+				
 				Pergunta p = new Pergunta();
 				p.setPergunta((colunas[0]));
 				p.setResposta1(colunas[1]);

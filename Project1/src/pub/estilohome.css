@@ -1,0 +1,30 @@
+ *{border: 0; padding: 0; margin: 0;}
+ body 
+ {background-image: url("pergaminho.jpg"); background-size:105% 250%;
+ }
+#barrinha ul
+{background-color:#000000;height:48px ; width:auto
+ }
+#barrinha ul li{
+	display:inline-table ; width: 20%;margin-top: 10px
+	}
+#barrinha ul li a{
+	text-decoration:none;font-family:sans-serif;color:#FFFFFF;font-size:24px;float:rigth
+	}
+#barrinha ul li a:hover{
+	background-color:#FFFFFF;color:#000000
+	}
+
+h1{
+	font-size:50px;
+}
+
+input[name=nick] {
+	width: 30%;
+	height:25px;
+}
+
+input[name=senha] {
+	width: 30%;
+	height:25px;
+}
