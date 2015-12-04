@@ -29,7 +29,11 @@ public class TestaControlador implements TemplateViewRoute {
 		}
 		
 		
+
 		// Se acertou redirecionar para a próxima
+
+		// Se acertou redirecionar para a prÃ³xima
+
 		// codigo++;
 		// Enviar um QUeryMap("pergunta", proxima_pergunta)
 		// Se n acertar

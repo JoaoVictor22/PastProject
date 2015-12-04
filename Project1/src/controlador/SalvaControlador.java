@@ -18,8 +18,9 @@ public class SalvaControlador implements TemplateViewRoute {
 		usuario.setNick(req.queryMap("nick").value());
 		usuario.setSenha(req.queryMap("senha").value());
 		usuario.setEmail(req.queryMap("email").value());
-		usuario.setPerguntausuario(0);
-
+		
+		
+		
 		dao.save(usuario);
 		resp.redirect("/home");
 		return null;

@@ -5,18 +5,11 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private int codigo;
-	private int perguntausuario;
-
+	
 	public Usuario() {
 		
 	}
 	
-	public int getPerguntausuario() {
-		return perguntausuario;
-	}
-	public void setPerguntausuario(int perguntausuario) {
-		this.perguntausuario = perguntausuario;
-	}
 	public String getNick() {
 		return nick;
 	}
