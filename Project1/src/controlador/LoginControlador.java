@@ -16,7 +16,6 @@ public class LoginControlador implements TemplateViewRoute {
 
 	public ModelAndView handle(Request req, Response res) {
 		
-
 		Usuario u = new Usuario();
 		UsuarioDAO dao = new UsuarioDAO();
 		
@@ -35,8 +34,7 @@ public class LoginControlador implements TemplateViewRoute {
 					Pergunta p = new Pergunta();
 					PerguntaDAO dao1 = new PerguntaDAO();
 					
-			
-					
+				
 					ArrayList<Pergunta> lista1 = new ArrayList<Pergunta>();
 					lista1 = dao1.findAll();
 					
