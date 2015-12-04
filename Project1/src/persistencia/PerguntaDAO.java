@@ -62,7 +62,9 @@ public class PerguntaDAO {
 			p.setResposta4(colunas[4]);
 			p.setResposta5(colunas[5]);
 			p.setRespostacerta(colunas[6]);
-			p.setCodigo(Integer.parseInt(colunas[7]));
+			System.out.println(colunas[7]);
+			p.setCodigo(codigo);
+			
 			return p;
 			
 		} catch (Exception e) {
