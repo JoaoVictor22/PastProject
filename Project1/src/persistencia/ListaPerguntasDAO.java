@@ -46,11 +46,13 @@ public class ListaPerguntasDAO {
 			ArrayList<Integer> n = new ArrayList<Integer>();
 			for(int j = 0;j<10;j++){
 			n.add(Integer.parseInt(colunas[j]));
-			return n;
+			
 			}
+			return n;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		
 		return null;
 

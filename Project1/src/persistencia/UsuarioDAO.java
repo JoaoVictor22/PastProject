@@ -91,7 +91,8 @@ public class UsuarioDAO  {
 				String linha = scan.nextLine();
 				String[] colunas = linha.split(";");				
 			
-				Usuario f = new Usuario();				
+				Usuario f = new Usuario();
+				f.setCodigo(Integer.parseInt(colunas[0]));
 				f.setNick(colunas[1].trim());
 				f.setEmail(colunas[2].trim());
 				f.setSenha(colunas[3].trim());				
