@@ -84,7 +84,11 @@ public class UsuarioDAO  {
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		try {
 			File dir = new File("usuario");		
+			if(!dir.exists()){
+				dir.mkdir();
+			}
 			File[] arqs = dir.listFiles();
+			System.out.println(arqs);
 			for (File arq : arqs) { 
 				Scanner scan = new Scanner(arq);				
 				String linha = scan.nextLine();
@@ -102,7 +106,6 @@ public class UsuarioDAO  {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return lista;
 	}
 	

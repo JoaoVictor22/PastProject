@@ -16,14 +16,30 @@ public class SalvaControlador implements TemplateViewRoute {
 	@Override
 	public ModelAndView handle(Request req, Response resp) {
 		
+		UsuarioDAO dao = new UsuarioDAO();
 		Usuario usuario = new Usuario();
+		
 		usuario.setNick(req.queryMap("nick").value());
 		usuario.setSenha(req.queryMap("senha").value());
-		usuario.setEmail(req.queryMap("email").value());
+
+		String nick = req.queryParams("nick");
+		String senha = req.queryParams("senha");
 		
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
+		lista = dao.findAll();
+		System.out.println(lista);
+		
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i) == null) {
+				dao.save(usuario);
+				return new ModelAndView(null,"home.html");
+			}
+			if (nick.trim().equals(lista.get(i).getNick())) {
+				return new ModelAndView(null,"erro_cadastro.html");
+			}
+		}
 		dao.save(usuario);
-		resp.redirect("/home");
-		return null;
-				
+		return new ModelAndView(null,"home.html");	
+		
 	}
 }
