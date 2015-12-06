@@ -23,6 +23,9 @@ public class TestaControlador implements TemplateViewRoute {
 			codigo++;
 			Pergunta nova = dao.load(codigo);
 			resp.redirect("/pergunta/"+codigo);
+			if(codigo == 10){
+				return new ModelAndView(null,"final.html");
+			}
 		}else{
 			return new ModelAndView (null,"erro.html");
 		}

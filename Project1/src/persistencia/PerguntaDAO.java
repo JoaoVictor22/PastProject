@@ -35,7 +35,7 @@ public class PerguntaDAO {
 			writer.write(p.getResposta4() + ";");
 			writer.write(p.getResposta5() + ";");
 			writer.write(p.getRespostacerta() + ";");
-			writer.write(p.getCodigo());
+			writer.write(p.getCodigo()+"");
 			// fechar o arquivo
 			writer.flush();
 			writer.close();
@@ -51,7 +51,9 @@ public class PerguntaDAO {
 			if ( ! arq.exists()) return null;
 			
 			Scanner scan = new Scanner(arq);
-			String linha = scan.nextLine();
+			String linha = "";
+			while(scan.hasNextLine()) linha = linha + scan.nextLine();
+			scan.close();
 			String[] colunas = linha.split(";");
 			
 			Pergunta p = new Pergunta();
@@ -117,7 +119,10 @@ public class PerguntaDAO {
 	public ArrayList<Pergunta> findAll() {
 		ArrayList<Pergunta> pergunta = new ArrayList<Pergunta>();
 		try {
-			File dir = new File("perguntas");		
+			File dir = new File("perguntas");
+			if(!dir.exists()){
+				dir.mkdir();
+			}
 			File[] arqs = dir.listFiles();
 			for (File arq : arqs) { // for each
 				Scanner scan = new Scanner(arq);
@@ -132,8 +137,10 @@ public class PerguntaDAO {
 				p.setResposta4((colunas[4]));
 				p.setResposta5((colunas[5]));
 				p.setRespostacerta((colunas[6]));
+				System.out.println(colunas[7]);
 				p.setCodigo(Integer.parseInt(colunas[7]));
 				pergunta.add(p);
+				scan.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -141,7 +148,18 @@ public class PerguntaDAO {
 		return pergunta;
 	}
 	
-	
+	public void delete(Pergunta p) {
+		try {
+			File arq = new File("perguntas/" + p.getCodigo() + ".csv");
+			System.out.println(p.getCodigo());
+			// se o arquivo não existe não continua
+			if ( ! arq.exists()) return; // pára a execução do método
+			// exclui o arquivo
+			arq.delete();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}		
+	}
 	}
 	
 	

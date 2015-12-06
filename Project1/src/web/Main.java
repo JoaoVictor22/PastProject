@@ -64,5 +64,10 @@ public class Main {
 		SobreControlador sobreControlador = new SobreControlador();
 		Spark.get("/sobre", sobreControlador, engine);
 		
+		ListaPerguntaControlador listaPerguntaControlador = new ListaPerguntaControlador();
+		Spark.get("/listapergunta",listaPerguntaControlador,engine);
+		
+		ExcluiControlador excluiControlador = new ExcluiControlador();
+		Spark.get("/exclui/:codigo", excluiControlador, engine);
 	}
 }

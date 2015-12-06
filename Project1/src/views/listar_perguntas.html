@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head> <meta charset="utf-8"> 
+<link href = "estilolista.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<center>
+	<h1>
+		Listagem Perguntas
+	</h1>
+	
+	<table>
+		<thread>
+			<tr>
+				<th>Pergunta</th>
+				<th>Opção1</th>
+				<th>Opção2</th>
+				<th>Opção3</th>
+				<th>Opção4</th>
+				<th>Opção5</th>
+				<th>RespostaCerta</th>
+				<th>Codigo</th>
+
+			</tr>
+		</thread>
+	<tbody>
+	{{#perguntas}}
+	<tr>
+		<td>{{pergunta}}</td>
+		<td>{{resposta1}}</td>
+		<td>{{resposta2}}</td/>
+		<td>{{resposta3}}</td>
+		<td>{{resposta4}}</td>
+		<td>{{resposta5}}</td>
+		<td>{{respostacerta}}</td>
+		<td>{{codigo}}</td>
+		<td>
+		<a href="/exclui/{{codigo}}">Excluir</a>
+
+		</td>
+	</tr>
+	{{/perguntas}}
+	</tbody>
+	</table>
+<a href="/home"> Home </a>
+</center>
+</body>
+</html>
