@@ -58,12 +58,11 @@ public class Main {
 		SalvaPerguntaControlador salvaPerguntaControlador = new SalvaPerguntaControlador();
 		Spark.post("/salvarPergunta",salvaPerguntaControlador,engine);
 
-
-
 		LoginControlador loginControlador = new LoginControlador();
 		Spark.post("/loga", loginControlador, engine);
+
+		SobreControlador sobreControlador = new SobreControlador();
+		Spark.get("/sobre", sobreControlador, engine);
 		
 	}
-
-
 }
