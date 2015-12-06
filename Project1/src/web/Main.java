@@ -38,6 +38,7 @@ public class Main {
 	
 		
 		Spark.get("/lista", listaControlador, engine);
+		Spark.get("/listar", listaControlador, engine);
 		
 		EditaControlador EditaControlador = new EditaControlador();
 		Spark.get("/editar", EditaControlador, engine);

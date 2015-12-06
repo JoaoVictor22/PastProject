@@ -32,7 +32,7 @@ public class LoginControlador implements TemplateViewRoute {
 			if (nick.trim().equals(lista.get(i).getNick())) {
 				if (senha.trim().equals(lista.get(i).getSenha())) {
 					if(nick.trim().equals("administrador")){
-						res.redirect("/cadastroperguntas"); 
+						return new ModelAndView(null,"homeadimin.html"); 
 					}
 					u = lista.get(i);
 					req.session().attribute("usuario", u);
