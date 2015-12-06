@@ -20,18 +20,20 @@ public class TestaControlador implements TemplateViewRoute {
 		// Comparar a resposta certa com a resposta fornecida pelo usuario
 		String op = req.queryMap("op").value();
 		if(op.equals(pergunta2.getRespostacerta())){
+			if (codigo == 9){
+				return new ModelAndView (null,"fim.html");
+			}
 			codigo++;
 			Pergunta nova = dao.load(codigo);
 			resp.redirect("/pergunta/"+codigo);
+
 			if(codigo == 10){
 				return new ModelAndView(null,"final.html");
 			}
+
 		}else{
 			return new ModelAndView (null,"erro.html");
 		}
-		
-		
-
 		// Se acertou redirecionar para a próxima
 
 		// Se acertou redirecionar para a prÃ³xima
