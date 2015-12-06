@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<link href = "estilo.css" rel="stylesheet" type="text/css">
-<body><center>
-
-	<br>
-	<h1> {{pergunta.pergunta}}</h1>
-	<br>
-<form method ="post" action="/testa/{{pergunta.codigo}}">
-a)<input type="radio" name="op" value="a">{{pergunta.resposta1}}
-<br>
-b)<input type="radio" name="op" value="b">{{pergunta.resposta2}}
-<br>
-c)<input type="radio" name="op" value="c">{{pergunta.resposta3}}
-<br>
-d)<input type="radio" name="op" value="d">{{pergunta.resposta4}}
-<br>
-e)<input type="radio" name="op" value="e">{{pergunta.resposta5}}
-<input type="submit" name="enviar"> 
-</form>	
-	</center>
-
+<head>
+	<meta charset="utf-8">
+	<link href="http://localhost:4567/estilo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<center>
+		<br>
+		<h1>{{pergunta.pergunta}}</h1>
+		<br>
+		<br>
+		<br>
+		<form method="post" action="/testa/{{pergunta.codigo}}">
+			<br> a)<input type="radio" name="op" value="a">{{pergunta.resposta1}}<br>
+			<br> b)<input type="radio" name="op" value="b">{{pergunta.resposta2}}<br>
+			<br> c)<input type="radio" name="op" value="c">{{pergunta.resposta3}}<br>
+			<br> d)<input type="radio" name="op" value="d">{{pergunta.resposta4}}<br>
+			<br> e)<input type="radio" name="op" value="e">{{pergunta.resposta5}}<br>
+			
+			  <input type="image" src="http://localhost:4567/avançar.png" value="Logar" alt="muda a imagem do botão" height="55" width="55" /> 
+		</form>
+	 </center>
 	
-
-
 </body>
 </html>
