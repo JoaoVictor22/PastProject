@@ -13,9 +13,10 @@ public class UsuarioDAO  {
 
 	public void save(Usuario f) {
 		try {
-			f.setCodigo(geraCodigo());
 			File dir = new File("usuario");
 			if (!dir.exists()) dir.mkdir();
+			f.setCodigo(geraCodigo());
+		
 			
 			File arq = new File("usuario/" + f.getCodigo() + ".csv");
 			if (arq.exists()) return;
